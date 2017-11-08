@@ -8,7 +8,7 @@
     <script src="../../dist/aframe-camera-listener-component.min.js"></script>
     <script src="https://unpkg.com/aframe-environment-component@1.0.0/dist/aframe-environment-component.min.js"></script>
     <script>
-    var cameraFollowEl = document.querySelector("#listener");
+    var cameraFollowEl = document.querySelector("#listentome");
     cameraFollowEl.addEventListener('camera-moved', (evt) => {
       var position = evt.detail.value.position;
       var rotation = evt.detail.value.rotation;
@@ -19,7 +19,7 @@
   </head>
   <body>
     <a-scene environment="preset: forest">
-      <a-entity camera-listener=""></a-entity>
+      <a-entity id="listentome" camera-listener=""></a-entity>
     </a-scene>
     
     <!-- GitHub Corner. -->
