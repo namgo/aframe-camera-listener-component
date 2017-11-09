@@ -59,14 +59,14 @@
 
 	/* look for significant rotation, 0.1 degree or more
 	so as to not take up too much CPU power */
-	function diffPosRot(currentPos, currentRot) {
+	function diffPosRot(currentPos, currentRot, accuracy) {
 	  var val = Object.keys(currentPos).map(function(key){
 	    if (key) {
-	      if (currentPos[key].toFixed(2) != lastPos[key].toFixed(1)) {
+	      if (currentPos[key].toFixed(accuracy) != lastPos[key].toFixed(accuracy)) {
 	        lastPos[key] = currentPos[key];
 	        return true;
 	      }
-	      if (currentRot[key].toFixed(2) != lastRot[key].toFixed(1)) {
+	      if (currentRot[key].toFixed(accuracy) != lastRot[key].toFixed(accuracy)) {
 	        lastRot[key] = currentRot[key];
 	        return true;
 	      }
@@ -74,7 +74,7 @@
 	  });
 	  for (var i = 0; i < val.length; i++){
 	    if (val[i] == true) {
-	      return true;
+		return true;
 	    }
 	  }
 	  return false;
@@ -106,7 +106,7 @@
 	    var cameraEl = this.el.sceneEl.camera.el;
 	    var pos = cameraEl.getAttribute('position');
 	    var rot = cameraEl.getAttribute('rotation');
-	    if (diffPosRot(pos, rot)) {
+	      if (diffPosRot(pos, rot, 2)) {
 	      this.data.dataEl.emit('camera-moved', {value: {position: pos, rotation: rot}});
 	    }
 	  },
