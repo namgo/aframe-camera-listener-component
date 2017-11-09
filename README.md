@@ -1,3 +1,9 @@
+# DON'T USE THIS!
+
+as per @dmarcos's suggestion:
+
+you can listen for the `componentchanged` event. `cameraEl.addEventListener('componentchanged', function (evt) { var componentName = evt.detail.name; if (componentName === 'rotation' || componentName === 'position') { your code } });`
+
 ## aframe-camera-listener-component
 
 [![Version](http://img.shields.io/npm/v/aframe-camera-listener-component.svg?style=flat-square)](https://npmjs.org/package/aframe-camera-listener-component)
